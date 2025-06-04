@@ -26,6 +26,18 @@ export async function getTables(this: ILoadOptionsFunctions) : Promise<INodeProp
     return tableOptions;
 }
 
+export async function getDataWarehouses(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+	const response = await peliqanApiRequest.call(this, 'GET', 'api/applications');
+
+	return response
+		.filter((app: any) => app.is_datawarehouse === true && app.server?.id && app.name)
+		.map((app: any) => ({
+			name: app.name,
+			value: app.server.id.toString(),
+		}));
+}
+
+
 export async function getInterfaceRuns(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
     const response = await peliqanApiRequest.call(this, 'GET', 'api/interfaces/');
 
