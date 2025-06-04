@@ -16,7 +16,7 @@ export const description: INodeProperties[] = [
     },
   },
   {
-    displayName: 'SQL Query (view)',
+    displayName: 'SQL Query (View)',
     name: 'querySql',
     type: 'string',
     typeOptions: {
@@ -33,7 +33,7 @@ export const description: INodeProperties[] = [
     },
   },
   {
-    displayName: 'Create SQL query (view)',
+    displayName: 'Create SQL Query (View)',
     name: 'submitQuery',
     type: 'hidden',
     default: '',

@@ -15,12 +15,12 @@ export const description: INodeProperties[] = [
       {
         name: 'Create SQL Query',
         value: 'create',
-        action: 'Create a new SQL query in Peliqan',
+        action: 'Create a sql view in peliqan',
       },
       {
         name: 'Execute SQL Query',
         value: 'exec',
-        action: 'Execute a SQL query via Peliqan',
+        action: 'Execute a sql query via peliqan',
       },
     ],
     default: 'create',

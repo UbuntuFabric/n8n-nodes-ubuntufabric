@@ -20,9 +20,14 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 
 ## Operations
 
-* List connections
-* Get data from table
-* Run pipeline
+* List connections  
+* Get data from table  
+* Run pipeline  
+* Execute endpoint  
+* Create a new SQL query in Peliqan  
+* Execute a SQL query via Peliqan  
+* Run a script  
+* Return logs of a script  
 
 ## Credentials
 

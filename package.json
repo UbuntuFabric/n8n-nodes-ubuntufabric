@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-peliqan",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "n8n community node to work with Peliqan",
   "keywords": [
     "n8n-community-node-package"
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/niko-n/n8ntest.git"
+    "url": "https://github.com/Peliqan-io/n8n-nodes-peliqan.git"
   },
   "engines": {
     "node": ">=20.15"
@@ -25,7 +25,7 @@
     "format": "prettier nodes credentials --write",
     "lint": "eslint nodes credentials package.json",
     "lintfix": "eslint nodes credentials package.json --fix",
-    "prepublishOnly": "npm build && npm lint -c .eslintrc.prepublish.js nodes credentials package.json"
+    "prepublishOnly": "npm run build && npm run lint -c .eslintrc.prepublish.js nodes credentials package.json"
   },
   "files": [
     "dist"

@@ -2,7 +2,7 @@ import type { INodeProperties } from 'n8n-workflow';
 
 export const description: INodeProperties[] = [
     {
-        displayName: 'Data Warehouse',
+        displayName: 'Data Warehouse Name or ID',
         name: 'connection',
         type: 'options',
         typeOptions: {
@@ -10,7 +10,7 @@ export const description: INodeProperties[] = [
         },
         default: '',
         required: true,
-        description: 'Select a data warehouse',
+        description: 'Select a data warehouse. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.',
         displayOptions: {
             show: {
                 resource: ['query'],
@@ -36,7 +36,7 @@ export const description: INodeProperties[] = [
         },
     },
     {
-        displayName: 'Execute SQL query',
+        displayName: 'Execute SQL Query',
         name: 'submitQuery',
         type: 'hidden',
         default: '',
