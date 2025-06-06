@@ -1,17 +1,17 @@
 import {
   INodeType,
   INodeTypeDescription,
-  NodeConnectionType,
 } from 'n8n-workflow';
+
 
 
 import { loadOptions } from './methods';
 
-import * as table from './actions/table/Table.resource'
-import * as script from './actions/script/Script.resource'
 import * as endpoint from './actions/endpoint/Endpoint.resource'
 import * as pipeline from './actions/pipeline/Pipeline.resource'
 import * as query from './actions/query/Query.resource'
+import * as script from './actions/script/Script.resource'
+import * as table from './actions/table/Table.resource'
 
 export class Peliqan implements INodeType {
   description: INodeTypeDescription = {
@@ -25,8 +25,8 @@ export class Peliqan implements INodeType {
     defaults: {
       name: 'Peliqan',
     },
-    inputs: [NodeConnectionType.Main],
-    outputs: [NodeConnectionType.Main],
+    inputs: ['main'],
+    outputs: ['main'],
     credentials: [
       {
         name: 'peliqanApi',

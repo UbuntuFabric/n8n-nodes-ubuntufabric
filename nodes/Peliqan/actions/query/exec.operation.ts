@@ -54,5 +54,11 @@ export const description: INodeProperties[] = [
                 },
             },
         },
+        displayOptions: {
+            show: {
+                resource: ['query'],
+                operation: ['exec'],
+            },
+        },
     },
 ];

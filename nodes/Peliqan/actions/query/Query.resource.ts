@@ -11,6 +11,11 @@ export const description: INodeProperties[] = [
     name: 'operation',
     type: 'options',
     noDataExpression: true,
+    displayOptions: {
+      show: {
+        resource: ['query'],
+      },
+    },
     options: [
       {
         name: 'Create SQL Query',
@@ -24,11 +29,6 @@ export const description: INodeProperties[] = [
       },
     ],
     default: 'create',
-    displayOptions: {
-      show: {
-        resource: ['query'],
-      },
-    },
   },
   ...create.description,
   ...exec.description,
