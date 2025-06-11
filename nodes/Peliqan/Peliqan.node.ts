@@ -25,6 +25,7 @@ export class Peliqan implements INodeType {
     defaults: {
       name: 'Peliqan',
     },
+    usableAsTool: true, 
     inputs: ['main'],
     outputs: ['main'],
     credentials: [
