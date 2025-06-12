@@ -3,8 +3,6 @@ import {
   INodeTypeDescription,
 } from 'n8n-workflow';
 
-
-
 import { loadOptions } from './methods';
 
 import * as endpoint from './actions/endpoint/Endpoint.resource'
@@ -82,3 +80,4 @@ export class Peliqan implements INodeType {
   };
   methods = { loadOptions }
 };
+

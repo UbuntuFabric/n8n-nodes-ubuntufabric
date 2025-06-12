@@ -45,3 +45,4 @@ Visit https://help.peliqan.io for more info.
 ## Version history
 
 * May 2025: v0.0.1 initial implementation
+* June 2025: v0.0.3 add list operation for tables

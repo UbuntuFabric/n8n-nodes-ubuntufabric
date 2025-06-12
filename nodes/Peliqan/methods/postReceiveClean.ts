@@ -50,3 +50,27 @@ export async function formatApiRoutes(
 		json: { name, route, method },
 	}));
 }
+
+export async function formatTables(
+  this: IExecuteSingleFunctions,
+  items: INodeExecutionData[],
+  _response: IN8nHttpFullResponse,
+): Promise<INodeExecutionData[]> {
+  const applications = items[0]?.json;
+
+  if (!Array.isArray(applications)) {
+    return [];
+  }
+
+  const tables = applications
+    .map(app => app.tables || [])
+    .flat();
+
+  return tables.map(table => ({
+    json: {
+	  id: table.id,
+      table: table.name_in_query,
+    }
+
+  }));
+}
