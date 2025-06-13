@@ -15,13 +15,13 @@ export class Peliqan implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'UbuntuFabric',
     name: 'peliqan',
-    icon: 'file:UbuntuFabric.png',
+    icon: 'file:UbuntuFabric.svg',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
     description: 'Get data from UF',
     defaults: {
-      name: 'Peliqan',
+      name: 'UbuntuFabric',
     },
     usableAsTool: true, 
     inputs: ['main'],
