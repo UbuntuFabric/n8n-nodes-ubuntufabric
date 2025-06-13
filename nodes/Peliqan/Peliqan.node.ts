@@ -13,13 +13,13 @@ import * as table from './actions/table/Table.resource'
 
 export class Peliqan implements INodeType {
   description: INodeTypeDescription = {
-    displayName: 'Peliqan',
+    displayName: 'UbuntuFabric',
     name: 'peliqan',
-    icon: 'file:Peliqan.svg',
+    icon: 'file:UbuntuFabric.png',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
-    description: 'Get data from Peliqan',
+    description: 'Get data from UF',
     defaults: {
       name: 'Peliqan',
     },
@@ -33,7 +33,7 @@ export class Peliqan implements INodeType {
       },
     ],
     requestDefaults: {
-      baseURL: 'https://app.eu.peliqan.io/',
+      baseURL: 'https://app.ubuntufabric.io/',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
