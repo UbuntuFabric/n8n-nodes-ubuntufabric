@@ -7,7 +7,7 @@ import {
 export class PeliqanApi implements ICredentialType {
 	name = 'peliqanApi';
 	displayName = 'Peliqan API';
-	documentationUrl = 'https://help.peliqan.io';
+	documentationUrl = 'https://help.ubuntufabric.io';
 	properties: INodeProperties[] = [
 		{
 			displayName: 'API Key',
