@@ -1,8 +1,8 @@
-# n8n-nodes-peliqan
+# n8n-nodes-ubuntufabric
 
-This is an n8n community node. It lets you use Peliqan in your n8n workflows.
+This is an n8n community node. It lets you use UF in your n8n workflows.
 
-Peliqan.io is an all-in-one data platform with ELT, built-in data warehouse, data transformations and a data cockpit.
+UF (UbuntuFabric) is an all-in-one data platform with ELT, built-in data warehouse, data transformations and a data cockpit.
 
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
 
@@ -24,23 +24,23 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 * Get data from table  
 * Run pipeline  
 * Execute endpoint  
-* Create a new SQL query in Peliqan  
-* Execute a SQL query via Peliqan  
+* Create a new SQL query in UF  
+* Execute a SQL query via UF  
 * Run a script  
 * Return logs of a script  
 
 ## Credentials
 
-Get your API key in Peliqan under Settings.
+Get your API key in UF under Settings.
 
 ## Usage
 
-Visit https://help.peliqan.io for more info.
+Visit https://ubuntufabric.io for more info.
 
 ## Resources
 
 * [n8n community nodes documentation](https://docs.n8n.io/integrations/#community-nodes)
-* https://peliqan.io
+* https://ubuntufabric.io
 
 ## Version history
 
