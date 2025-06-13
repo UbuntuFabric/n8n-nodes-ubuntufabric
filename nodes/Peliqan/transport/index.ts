@@ -25,7 +25,7 @@ export async function peliqanApiRequest(
 		method,
 		body,
 		qs: query,
-		uri: uri || `https://app.eu.peliqan.io/${endpoint}`,
+		uri: uri || `https://app.ubuntufabric.io/${endpoint}`,
 		useQuerystring: false,
 		json: true,
 	};
