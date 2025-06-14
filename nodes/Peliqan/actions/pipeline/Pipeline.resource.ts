@@ -5,25 +5,25 @@ import * as run from './run.operation';
 export { run };
 
 export const description: INodeProperties[] = [
-  {
-    displayName: 'Operation',
-    name: 'operation',
-    type: 'options',
-    noDataExpression: true,
-    displayOptions: {
-      show: {
-        resource: ['pipeline'],
-      },
-    },
-    options: [
-      {
-        name: 'Run',
-        value: 'run',
-        description: 'Run a pipeline',
-        action: 'Run a pipeline',
-      },
-    ],
-    default: 'run',
-  },
-  ...run.description,
+	{
+		displayName: 'Operation',
+		name: 'operation',
+		type: 'options',
+		noDataExpression: true,
+		options: [
+			{
+				name: 'Run',
+				value: 'run',
+				action: 'Run a pipeline',
+				description: 'Start a pipeline sync on a server',
+			},
+		],
+		default: 'run',
+		displayOptions: {
+			show: {
+				resource: ['pipeline'],
+			},
+		},
+	},
+	...run.description,
 ];

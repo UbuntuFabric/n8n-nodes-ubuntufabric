@@ -1,64 +1,63 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { IExecuteFunctions, INodeExecutionData, INodeProperties } from 'n8n-workflow';
+import { peliqanApiRequest } from '../../transport';
 
 export const description: INodeProperties[] = [
-    {
-        displayName: 'Data Warehouse Name or ID',
-        name: 'connection',
-        type: 'options',
-        typeOptions: {
-            loadOptionsMethod: 'getDataWarehouses',
-        },
-        default: '',
-        required: true,
-        description: 'Select a data warehouse. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.',
-        displayOptions: {
-            show: {
-                resource: ['query'],
-                operation: ['exec'],
-            },
-        },
-    },
-    {
-        displayName: 'SQL Query',
-        name: 'querySql',
-        type: 'string',
-        typeOptions: {
-            rows: 10,
-        },
-        default: '',
-        required: true,
-        placeholder: 'SELECT * FROM my_table;',
-        displayOptions: {
-            show: {
-                resource: ['query'],
-                operation: ['exec'],
-            },
-        },
-    },
-    {
-        displayName: 'Execute SQL Query',
-        name: 'submitQuery',
-        type: 'hidden',
-        default: '',
-        routing: {
-            request: {
-                method: 'POST',
-                url: 'api/proxy/db/',
-                body: {
-                    action: 'fetch',
-                    connection: '={{ $parameter.connection }}',
-                    dbName: '={{ getNodeParameter("connection", 0, "", true).name }}',
-                    kwargs: {
-                        query: '={{ $parameter.querySql }}',
-                    },
-                },
-            },
-        },
-        displayOptions: {
-            show: {
-                resource: ['query'],
-                operation: ['exec'],
-            },
-        },
-    },
+	{
+		displayName: 'Data Warehouse Name or ID',
+		name: 'connection',
+		type: 'options',
+		typeOptions: {
+			loadOptionsMethod: 'getDataWarehouses',
+		},
+		default: '',
+		required: true,
+		description:
+			'Select a data warehouse. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.',
+		displayOptions: {
+			show: {
+				resource: ['query'],
+				operation: ['exec'],
+			},
+		},
+	},
+	{
+		displayName: 'SQL Query',
+		name: 'querySql',
+		type: 'string',
+		typeOptions: {
+			rows: 10,
+		},
+		default: '',
+		required: true,
+		placeholder: 'SELECT * FROM my_table;',
+		displayOptions: {
+			show: {
+				resource: ['query'],
+				operation: ['exec'],
+			},
+		},
+	},
 ];
+
+export const execute = async function (
+	this: IExecuteFunctions,
+	index: number,
+): Promise<INodeExecutionData[]> {
+	const connectionId = this.getNodeParameter('connection', index) as string;
+	const querySql = this.getNodeParameter('querySql', index) as string;
+	const dbOption = this.getNodeParameter('connection', 0, '', { extractValue: false }) as {
+		name?: string;
+	};
+	const dbName = dbOption?.name ?? '';
+
+	const response = await peliqanApiRequest.call(this, 'POST', 'api/proxy/db/', {
+		action: 'fetch',
+		connection: connectionId,
+		dbName,
+		kwargs: {
+			query: querySql,
+		},
+	});
+
+	return [{ json: response }];
+};
