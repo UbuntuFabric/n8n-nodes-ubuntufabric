@@ -1,6 +1,7 @@
 import {
   INodeType,
   INodeTypeDescription,
+  IExecuteFunctions
 } from 'n8n-workflow';
 
 import { loadOptions } from './methods';
@@ -8,6 +9,7 @@ import { loadOptions } from './methods';
 import * as endpoint from './actions/endpoint/Endpoint.resource'
 import * as pipeline from './actions/pipeline/Pipeline.resource'
 import * as query from './actions/query/Query.resource'
+import { router } from './actions/router';
 import * as script from './actions/script/Script.resource'
 import * as table from './actions/table/Table.resource'
 
@@ -78,6 +80,12 @@ export class Peliqan implements INodeType {
     ],
 
   };
+  
   methods = { loadOptions }
+
+	async execute(this: IExecuteFunctions) {
+		return await router.call(this);
+	}
+  
 };
 

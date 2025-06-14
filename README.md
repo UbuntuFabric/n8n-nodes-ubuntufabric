@@ -46,3 +46,4 @@ Visit https://help.peliqan.io for more info.
 
 * May 2025: v0.0.1 initial implementation
 * June 2025: v0.0.3 add list operation for tables
+* June 2025: v0.0.4 allow tool usage of node
