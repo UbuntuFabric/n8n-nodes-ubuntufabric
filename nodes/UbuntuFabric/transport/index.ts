@@ -9,7 +9,7 @@ import {
 } from 'n8n-workflow';
 
 
-export async function peliqanApiRequest(
+export async function ubuntufabricApiRequest(
 	this: IExecuteFunctions | ILoadOptionsFunctions | IPollFunctions,
 	method: IHttpRequestMethods,
 	endpoint: string,
@@ -39,7 +39,7 @@ export async function peliqanApiRequest(
 	}
 
     try {
-		return await this.helpers.requestWithAuthentication.call(this, 'peliqanApi', options);
+		return await this.helpers.requestWithAuthentication.call(this, 'ubuntufabricApi', options);
 	} 
     catch (error) {
 		throw new NodeApiError(this.getNode(), error, {

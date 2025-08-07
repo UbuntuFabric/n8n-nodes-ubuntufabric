@@ -4,9 +4,9 @@ import {
 	INodeProperties,
 } from 'n8n-workflow';
 
-export class PeliqanApi implements ICredentialType {
-	name = 'peliqanApi';
-	displayName = 'Peliqan API';
+export class UbuntuFabricApi implements ICredentialType {
+	name = 'ubuntufabricApi';
+	displayName = 'UbuntuFabric API';
 	documentationUrl = 'https://help.ubuntufabric.io';
 	properties: INodeProperties[] = [
 		{

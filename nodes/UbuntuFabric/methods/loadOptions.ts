@@ -1,10 +1,10 @@
 import type {ILoadOptionsFunctions, INodePropertyOptions } from 'n8n-workflow';
 
-import { peliqanApiRequest } from '../transport';
+import { ubuntufabricApiRequest } from '../transport';
 
 export async function getTables(this: ILoadOptionsFunctions) : Promise<INodePropertyOptions[]> {
 
-    const response = await peliqanApiRequest.call(this, 'GET', 'api/applications/?');
+    const response = await ubuntufabricApiRequest.call(this, 'GET', 'api/applications/?');
 
     const tableOptions: Array<{ name: string; value: string }> = [];
 
@@ -27,7 +27,7 @@ export async function getTables(this: ILoadOptionsFunctions) : Promise<INodeProp
 }
 
 export async function getDataWarehouses(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
-	const response = await peliqanApiRequest.call(this, 'GET', 'api/applications');
+	const response = await ubuntufabricApiRequest.call(this, 'GET', 'api/applications');
 
 	return response
 		.filter((app: any) => app.is_datawarehouse === true && app.server?.id && app.name)
@@ -39,7 +39,7 @@ export async function getDataWarehouses(this: ILoadOptionsFunctions): Promise<IN
 
 
 export async function getInterfaceRuns(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
-    const response = await peliqanApiRequest.call(this, 'GET', 'api/interfaces/');
+    const response = await ubuntufabricApiRequest.call(this, 'GET', 'api/interfaces/');
 
     const runs = response ?? [];
 
@@ -62,7 +62,7 @@ export async function getInterfaceRuns(this: ILoadOptionsFunctions): Promise<INo
 }
 
 export async function getPipelineRuns(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
-	const response = await peliqanApiRequest.call(this, 'GET', 'api/servers');
+	const response = await ubuntufabricApiRequest.call(this, 'GET', 'api/servers');
 
 	const servers = response ?? [];
 
@@ -84,11 +84,11 @@ export async function getPipelineRuns(this: ILoadOptionsFunctions): Promise<INod
 }
 
 export async function getApiEndpoints(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
-	const accountRes = await peliqanApiRequest.call(this, 'GET', 'api/user/account');
+	const accountRes = await ubuntufabricApiRequest.call(this, 'GET', 'api/user/account');
 	const accountId = accountRes?.id;
 
 
-	const endpoints = await peliqanApiRequest.call(this, 'GET', 'api/api_endpoints');
+	const endpoints = await ubuntufabricApiRequest.call(this, 'GET', 'api/api_endpoints');
 
 	if (!Array.isArray(endpoints)) return [];
 
