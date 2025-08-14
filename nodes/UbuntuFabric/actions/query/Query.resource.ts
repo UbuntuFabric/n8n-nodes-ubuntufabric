@@ -20,12 +20,12 @@ export const description: INodeProperties[] = [
       {
         name: 'Create SQL Query',
         value: 'create',
-        action: 'Create a sql view in UbuntuFabric',
+        action: 'Create a sql view in ubuntufabric',
       },
       {
         name: 'Execute SQL Query',
         value: 'exec',
-        action: 'Execute a sql query via UbuntuFabric',
+        action: 'Execute a sql query via ubuntufabric',
       },
     ],
     default: 'create',
