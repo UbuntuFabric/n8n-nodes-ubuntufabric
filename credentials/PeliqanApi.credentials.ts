@@ -21,7 +21,7 @@ export class PeliqanApi implements ICredentialType {
 			displayName: 'Domain',
 			name: 'domain',
 			type: 'string',
-			default: 'https://app.eu.peliqan.io',		
+			default: 'https://app.eu.peliqan.io',
 		}
 	];
 	authenticate: IAuthenticateGeneric = {
