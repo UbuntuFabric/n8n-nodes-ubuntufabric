@@ -36,16 +36,16 @@ The node currently supports:
 ## Credentials
 
 1. Log in to [Peliqan.io](https://peliqan.io).  
-2. Go to **Settings → API Keys**.  
-3. Copy your API key.  
-4. In n8n, go to **Credentials → New → Peliqan API** and paste your key.  
+2. Go to **Settings → API Token**.  
+3. Copy your API Token.  
+4. In n8n, go to **Credentials → New → Peliqan API** and paste your Token.  
 
 🔑 More details here: [Configure credentials in n8n](https://help.peliqan.io/build-ai-agents-with-n8n-and-peliqan#2401aa9b38798047ad22e353042f5d74).  
 
 
 ## Usage
 
-- Visit the [Peliqan Help Center](https://help.peliqan.io) for guides and tutorials:
+- Visit the [Peliqan Documentation](https://help.peliqan.io) for guides and tutorials:
     - To set up **AI Agents in n8n** with RAG and SQL: [step-by-step guide](https://help.peliqan.io/build-ai-agents-with-n8n-and-peliqan).  
 
 ## Resources
