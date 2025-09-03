@@ -1,4 +1,4 @@
-import type { IExecuteFunctions, INodeExecutionData, INodeProperties } from 'n8n-workflow';
+import type { IExecuteFunctions, INodeExecutionData, INodeProperties,  } from 'n8n-workflow';
 import { peliqanApiRequest } from '../../transport';
 
 export const description: INodeProperties[] = [
@@ -22,9 +22,7 @@ export const execute = async function (
 ): Promise<INodeExecutionData[]> {
 	const response = await peliqanApiRequest.call(this, 'GET', 'api/applications/');
 
-	if (!Array.isArray(response)) {
-		return [];
-	}
+	if (!Array.isArray(response)) return [];
 
 	const tables = response
 		.map((app: any) => app.tables || [])
