@@ -2,32 +2,25 @@ import type {ILoadOptionsFunctions, INodePropertyOptions } from 'n8n-workflow';
 
 import { peliqanApiRequest } from '../transport';
 
-export async function getTables(this: ILoadOptionsFunctions) : Promise<INodePropertyOptions[]> {
+export async function getTables(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+	const response = await peliqanApiRequest.call(this, 'GET', 'api/applications/');
+	if (!Array.isArray(response)) return [];
 
-    const response = await peliqanApiRequest.call(this, 'GET', 'api/applications/?');
-
-    const tableOptions: Array<{ name: string; value: string }> = [];
-
-    for (const app of response) {
-        const tables = app.tables;
-        if (!Array.isArray(tables)) continue;
-
-        for (const table of tables) {
-            const id = table.id;
-            const name = table.name_in_query;
-            if (id && name) {
-                tableOptions.push({
-                name,
-                value: id.toString(),
-                });
-            }
-        }
-    }
-    return tableOptions;
+	const options: INodePropertyOptions[] = [];
+	for (const app of response) {
+		if (!Array.isArray(app?.tables)) continue;
+		for (const table of app.tables) {
+			if (table?.id && table?.name_in_query) {
+				options.push({ name: table.name_in_query, value: String(table.id) });
+			}
+		}
+	}
+	return options;
 }
 
 export async function getDataWarehouses(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 	const response = await peliqanApiRequest.call(this, 'GET', 'api/applications');
+	if (!Array.isArray(response)) return [];
 
 	return response
 		.filter((app: any) => app.is_datawarehouse === true && app.server?.id && app.name)
@@ -39,48 +32,21 @@ export async function getDataWarehouses(this: ILoadOptionsFunctions): Promise<IN
 
 
 export async function getInterfaceRuns(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
-    const response = await peliqanApiRequest.call(this, 'GET', 'api/interfaces/');
+	const response = await peliqanApiRequest.call(this, 'GET', 'api/interfaces/');
+	if (!Array.isArray(response)) return [];
 
-    const runs = response ?? [];
-
-    const runOptions: INodePropertyOptions[] = [];
-
-    for (const run of runs) {
-        const id = run?.id;
-        const name = run?.name;
-        const runMode = run?.run_mode;
-
-        if (id && name && runMode) {
-            runOptions.push({
-                name: name,
-                value: id,
-            });
-        }
-    }
-
-    return runOptions;
+	return response
+		.filter((run: any) => run?.id && run?.name && run?.run_mode)
+		.map((run: any) => ({ name: run.name, value: String(run.id) }));
 }
 
 export async function getPipelineRuns(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 	const response = await peliqanApiRequest.call(this, 'GET', 'api/servers');
+	if (!Array.isArray(response)) return [];
 
-	const servers = response ?? [];
-
-	const options: INodePropertyOptions[] = [];
-
-	for (const server of servers) {
-		const id = server?.id;
-		const name = server?.friendly_name;
-
-		if (id && name && !server.pipeline_allowed) {
-			options.push({
-				name,
-				value: id,
-			});
-		}
-	}
-
-	return options;
+	return response
+		.filter((srv: any) => srv?.id && srv?.friendly_name && !srv.pipeline_allowed)
+		.map((srv: any) => ({ name: srv.friendly_name, value: String(srv.id) }));
 }
 
 export async function getApiEndpoints(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
@@ -92,7 +58,7 @@ export async function getApiEndpoints(this: ILoadOptionsFunctions): Promise<INod
 
 	if (!Array.isArray(endpoints)) return [];
 
-	return endpoints.map(({ name, route, method }) => {
+	return endpoints.map(({_, route, method }) => {
 		const fullPath = `${accountId}${route}`;
 		return {
 			name: `${method} ${route}`,
