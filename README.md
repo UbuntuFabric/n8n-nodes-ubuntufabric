@@ -52,7 +52,7 @@ The node currently supports:
 
 - [n8n community nodes documentation](https://docs.n8n.io/integrations/#community-nodes)  
 - [Peliqan.io](https://peliqan.io)  
-- [Peliqan Help Center](https://help.peliqan.io)  
+- [Peliqan Documentation](https://help.peliqan.io)  
 
 
 ## Version history
