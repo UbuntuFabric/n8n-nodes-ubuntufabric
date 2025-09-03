@@ -15,7 +15,7 @@ export const description: INodeProperties[] = [
 				name: 'Run',
 				value: 'run',
 				action: 'Run a pipeline',
-				description: 'Start a pipeline sync on a server',
+				description: 'Start pipeline sync on server',
 			},
 		],
 		default: 'run',
