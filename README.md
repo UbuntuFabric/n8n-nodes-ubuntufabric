@@ -1,49 +1,63 @@
 # n8n-nodes-peliqan
 
-This is an n8n community node. It lets you use Peliqan in your n8n workflows.
+This is an **n8n community node** that lets you use [Peliqan](https://peliqan.io) in your [n8n](https://n8n.io) workflows.  
 
-Peliqan.io is an all-in-one data platform with ELT, built-in data warehouse, data transformations and a data cockpit.
+Peliqan.io is an all-in-one data platform with **ELT**, a **built-in data warehouse**, **data transformations**, and a **data cockpit**.  
 
-[n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
+## Table of contents
 
-[Installation](#installation)  
-[Operations](#operations)  
-[Credentials](#credentials) 
-[Compatibility](#compatibility)  
-[Usage](#usage)  
-[Resources](#resources)  
-[Version history](#version-history) 
+- [Installation](#installation)  
+- [Operations](#operations)  
+- [Credentials](#credentials)  
+- [Usage](#usage)  
+- [Resources](#resources)  
+- [Version history](#version-history)  
+
 
 ## Installation
 
-Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes/installation/) in the n8n community nodes documentation.
+Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes/installation/) in the n8n documentation.  
+
 
 ## Operations
 
-* List connections  
-* Get data from table  
-* Run pipeline  
-* Execute endpoint  
-* Create a new SQL query in Peliqan  
-* Execute a SQL query via Peliqan  
-* Run a script  
-* Return logs of a script  
+The node currently supports:
+
+- **List connections** – Retrieve available Peliqan connections  
+- **List tables** – Retrieve available tables  
+- **Get data from table** – Query records from a Peliqan table  
+- **Run pipeline** – Trigger an existing pipeline  
+- **Execute endpoint** – Call an API endpoint defined in Peliqan  
+- **Create SQL query** – Create a new SQL query in Peliqan  
+- **Execute SQL query** – Run a query against Peliqan’s data warehouse  
+- **Run script** – Execute a script stored in Peliqan  
+- **Get script logs** – Retrieve execution logs of a script  
 
 ## Credentials
 
-Get your API key in Peliqan under Settings.
+1. Log in to [Peliqan.io](https://peliqan.io).  
+2. Go to **Settings → API Keys**.  
+3. Copy your API key.  
+4. In n8n, go to **Credentials → New → Peliqan API** and paste your key.  
+
+🔑 More details here: [Configure credentials in n8n](https://help.peliqan.io/build-ai-agents-with-n8n-and-peliqan#2401aa9b38798047ad22e353042f5d74).  
+
 
 ## Usage
 
-Visit https://help.peliqan.io for more info.
+- Visit the [Peliqan Help Center](https://help.peliqan.io) for guides and tutorials:
+    - To set up **AI Agents in n8n** with RAG and SQL: [step-by-step guide](https://help.peliqan.io/build-ai-agents-with-n8n-and-peliqan).  
 
 ## Resources
 
-* [n8n community nodes documentation](https://docs.n8n.io/integrations/#community-nodes)
-* https://peliqan.io
+- [n8n community nodes documentation](https://docs.n8n.io/integrations/#community-nodes)  
+- [Peliqan.io](https://peliqan.io)  
+- [Peliqan Help Center](https://help.peliqan.io)  
+
 
 ## Version history
 
-* May 2025: v0.0.1 initial implementation
-* June 2025: v0.0.3 add list operation for tables
-* June 2025: v0.0.4 allow tool usage of node
+- **May 2025** – `v0.0.1` initial implementation  
+- **June 2025** – `v0.0.3` add table list operation  
+- **June 2025** – `v0.0.4` enable tool usage of node  
+- **September 2025** – `v0.0.5` UX fixes and code overhaul
