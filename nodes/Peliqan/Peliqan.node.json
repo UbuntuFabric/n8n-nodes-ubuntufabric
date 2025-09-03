@@ -2,18 +2,16 @@
 	"node": "n8n-nodes-base.Peliqan",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
-	"categories": [
-		"Miscellaneous"
-	],
+	"categories": ["Data & Storage"],
 	"resources": {
 		"credentialDocumentation": [
 			{
-				"url": ""
+				"url": "https://help.peliqan.io/"
 			}
 		],
 		"primaryDocumentation": [
 			{
-				"url": ""
+				"url": "https://help.peliqan.io/"
 			}
 		]
 	}
