@@ -23,7 +23,6 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 
 The node currently supports:
 
-- **List connections** – Retrieve available Peliqan connections  
 - **List tables** – Retrieve available tables  
 - **Get data from table** – Query records from a Peliqan table  
 - **Run pipeline** – Trigger an existing pipeline  
@@ -61,3 +60,4 @@ The node currently supports:
 - **June 2025** – `v0.0.3` add table list operation  
 - **June 2025** – `v0.0.4` enable tool usage of node  
 - **September 2025** – `v0.0.5` UX fixes and code overhaul
+- **October 2025** – `v0.0.6` replace deprecated functions
