@@ -21,13 +21,13 @@ export const description: INodeProperties[] = [
         name: 'Run',
         value: 'run',
         description: 'Run a script',
-        action: 'Run a script',
+        action: 'Run script',
       },
       {
         name: 'Logs',
         value: 'logs',
-        description: 'Return logs of a script',
-        action: 'Return logs of a script'
+        description: 'Return logs of script',
+        action: 'Return logs of script'
       }
     ],
     default: 'run',

@@ -2,18 +2,16 @@
 	"node": "n8n-nodes-base.UbuntuFabric",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
-	"categories": [
-		"Miscellaneous"
-	],
+	"categories": ["Data & Storage"],
 	"resources": {
 		"credentialDocumentation": [
 			{
-				"url": ""
+				"url": "https://help.peliqan.io/build-ai-agents-with-n8n-and-peliqan#2401aa9b38798047ad22e353042f5d74"
 			}
 		],
 		"primaryDocumentation": [
 			{
-				"url": ""
+				"url": "https://help.peliqan.io/build-ai-agents-with-n8n-and-peliqan"
 			}
 		]
 	}

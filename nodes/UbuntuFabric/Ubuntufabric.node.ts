@@ -80,6 +80,7 @@ export class UbuntuFabric implements INodeType {
     ],
 
   };
+  
   methods = { loadOptions }
   
 	async execute(this: IExecuteFunctions) {

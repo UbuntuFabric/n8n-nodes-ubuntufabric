@@ -1,5 +1,6 @@
 import {
 	IAuthenticateGeneric,
+	ICredentialTestRequest,
 	ICredentialType,
 	INodeProperties,
 } from 'n8n-workflow';
@@ -7,7 +8,7 @@ import {
 export class UbuntuFabricApi implements ICredentialType {
 	name = 'ubuntufabricApi';
 	displayName = 'UbuntuFabric API';
-	documentationUrl = 'https://help.ubuntufabric.io';
+	documentationUrl = 'https://ubuntufabric.io';
 	properties: INodeProperties[] = [
 		{
 			displayName: 'API Key',
@@ -15,7 +16,7 @@ export class UbuntuFabricApi implements ICredentialType {
 			type: 'string',
 			typeOptions: { password: true },
 			default: '',
-		},
+		}
 	];
 	authenticate: IAuthenticateGeneric = {
 		type: 'generic',
@@ -23,6 +24,13 @@ export class UbuntuFabricApi implements ICredentialType {
 			headers: {
 				'Authorization': '={{"JWT " + $credentials.apiKey}}',
 			}
+		},
+	};
+
+	test: ICredentialTestRequest = {
+		request: {
+			baseURL: '={{$credentials.domain}}',
+			url: '/api/applications',
 		},
 	};
 }

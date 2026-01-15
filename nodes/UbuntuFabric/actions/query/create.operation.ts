@@ -25,7 +25,7 @@ export const description: INodeProperties[] = [
 		},
 		default: '',
 		required: true,
-		placeholder: 'SELECT * FROM my_table;',
+		placeholder: 'e.g. SELECT * FROM my_table;',
 		displayOptions: {
 			show: {
 				resource: ['query'],

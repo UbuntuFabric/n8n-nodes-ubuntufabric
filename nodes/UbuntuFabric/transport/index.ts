@@ -1,11 +1,11 @@
-import {
-	type IDataObject,
-	type IExecuteFunctions,
-	type IPollFunctions,
-	type ILoadOptionsFunctions,
-	type IHttpRequestMethods,
-	type IRequestOptions,
-    NodeApiError,
+import{
+   type IDataObject,
+   type IExecuteFunctions,
+   type IPollFunctions,
+   type ILoadOptionsFunctions,
+   type IHttpRequestMethods,
+   type IHttpRequestOptions,
+   NodeApiError,
 } from 'n8n-workflow';
 
 
@@ -15,35 +15,30 @@ export async function ubuntufabricApiRequest(
 	endpoint: string,
 	body: IDataObject = {},
 	query?: IDataObject,
-	uri?: string,
+	url?: string,
 	option: IDataObject = {},
 ) {
-	query = query || {};
-
-	const options: IRequestOptions = {
-		headers: {},
-		method,
-		body,
-		qs: query,
-		uri: uri || `https://app.ubuntufabric.io/${endpoint}`,
-		useQuerystring: false,
-		json: true,
-	};
-
-	if (Object.keys(option).length !== 0) {
-		Object.assign(options, option);
-	}
-
-	if (Object.keys(body).length === 0) {
-		delete options.body;
-	}
-
+    query = query || {};
+    const options : IHttpRequestOptions = {
+        headers: {},
+        method,
+        body,
+        qs: query,
+        url: `https://app.ubuntufabric.io/${endpoint}`,
+        json: true,
+    };
+    if (Object.keys(option).length !== 0) {
+        Object.assign(options, option);
+    }
+    if (Object.keys(body).length === 0) {
+        delete options.body;
+    }
     try {
-		return await this.helpers.requestWithAuthentication.call(this, 'ubuntufabricApi', options);
-	} 
+        return await this.helpers.httpRequestWithAuthentication.call(this, 'ubuntufabricApi', options);
+    }
     catch (error) {
-		throw new NodeApiError(this.getNode(), error, {
-			message: error.message,
-		});
-	}
+        throw new NodeApiError(this.getNode(), error, {
+            message: error.message,
+        });
+    }
 }
