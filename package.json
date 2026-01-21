@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-ubuntufabric",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "n8n community node to work with UbuntuFabric",
   "keywords": [
     "n8n-community-node-package"
@@ -19,15 +19,14 @@
     "node": ">=20.15"
   },
   "main": "index.js",
-  	"scripts": {
-		"build": "n8n-node build",
-		"build:watch": "tsc --watch",
-		"dev": "n8n-node dev",
-		"lint": "n8n-node",
-		"lint:fix": "n8n-node lint --fix",
-		"release": "n8n-node release",
-		"prepublishOnly": "n8n-node prerelease"
-
+  "scripts": {
+    "build": "n8n-node build",
+    "build:watch": "tsc --watch",
+    "dev": "n8n-node dev",
+    "lint": "n8n-node",
+    "lint:fix": "n8n-node lint --fix",
+    "release": "n8n-node release",
+    "prepublishOnly": "n8n-node prerelease"
   },
   "files": [
     "dist"
