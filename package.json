@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-ubuntufabric",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "n8n community node to work with UbuntuFabric",
   "keywords": [
     "n8n-community-node-package"
